@@ -19,9 +19,13 @@ const WorkoutIndex = (props) => {
         }) .then((res)=> res.json())
         .then((logData)=>{
             setWorkouts(logData)
-            // console.log(logData)
+            console.log(logData)
         })
     }
+    
+    useEffect(() => {
+        fetchWorkouts();
+    }, [])
 
     const editUpdateWorkout = (workout) => {
         setWorkoutToUpdate(workout);
@@ -36,9 +40,6 @@ const WorkoutIndex = (props) => {
         setUpdateActive(false);
     }
 
-    useEffect(() => {
-        fetchWorkouts();
-    }, [])
 
     return(
         <Container>
